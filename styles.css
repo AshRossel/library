@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100;8..144,200;8..144,300;8..144,400;8..144,500;8..144,600;8..144,700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto Flex', sans-serif;
+}
+
+body {
+    height: 100vh;
+}
+
+.table-container {
+    display: flow-root; /* Just for avoiding margin collapse */
+    background-image: linear-gradient(to bottom right, #cfe8ef, #c6dbf0);
+    height: 100%;
+    text-align: center;
+}
+
+table {
+    margin: 15px auto;
+    border-spacing: 0;
+    border-radius: 10px;
+    font-family: sans-serif;
+    text-align: center;
+}
+
+
+th, td {
+    background-color: #F4F3F3;
+    border: 1px solid #5C96AC;
+    padding: 5px 15px;
+}
+
+th:first-child, td:first-child {
+    background: none;
+    border: none;
+}
+
+tr:first-child > th:nth-child(1n + 2) {
+    background-color: #1c3241;
+    border-top: none;
+    border-bottom: none;
+    color: white;
+}
+
+tr:first-child > th:nth-child(2),
+tr > td:nth-child(2) {
+    border-left: none;
+}
+
+tr > td:nth-last-child(2),
+tr:first-child > th:nth-last-child(1) {
+    border-right: none;
+}
+
+tr:last-child > td {
+    border-bottom: none;
+}
+
+tr:first-child > th:nth-child(2) {
+    min-width: 300px;
+}
+
+
+td:last-child {
+    background: none;
+    border: none;
+}
+
+th:last-child {
+    border-top-right-radius: 10px;
+    width: auto;
+}
+
+th:nth-child(2) {
+    border-top-left-radius: 10px;
+}
+
+tr:last-child > td:nth-child(2) {
+    border-bottom-left-radius: 10px;
+}
+
+tr:last-child > td:nth-last-child(2) {
+    border-bottom-right-radius: 10px;
+}
+
+button {
+    appearance: none;
+    border-style: none;
+    box-shadow: 4px 4px 1px black;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: 600;
+    background-color: #5c96ac;
+}
+
+.add-book {
+    margin-top: 15px;
+    padding: 15px 30px;
+    font-weight: bold;
+    font-size: 1rem;
+    background-color: #1a3b50;
+    color: white;
+}
+
+dialog {
+    padding: 20px 40px;
+    margin: auto;
+    width: 400px;
+    height: 400px;
+    background-image: linear-gradient(to bottom right, #cfe8ef, #c6dbf0);
+    border-radius: 10px;
+    border: 1px solid #1c3241;
+}
+
+form {
+    display: grid;
+    grid-template-rows: 90px 90px 120px;
+    align-items: center;
+    justify-content: center;
+}
+
+label[for="title"], label[for="pages"] {
+    font-weight: 500;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+    display: block;
+}
+
+input[type="text"], input[type="number"] {
+    font-family: inherit;
+    font-size: 100%;
+    appearance: none;
+    border-radius: 5px;
+    border-style: none;
+    width: 300px;
+    padding: 5px 10px;
+    box-shadow: 4px 4px 1px black;
+}
+
+input[type="text"]:focus, input[type="number"]:focus {
+    outline: none;
+}
+
+input[type="number"] {
+    width: 100px;
+}
+
+
+.read-form div {
+    display: inline-block;
+    margin: 8px;
+}
+
+label[for="read"] {
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+
+
+.dialog-buttons {
+    display: flex;
+    margin: 15px 0 40px 0;
+    justify-content: space-between;
+}
+
+p {
+    margin-bottom: 10px;
+    font-weight: 600;
+    font-size: 1.3rem;
+}

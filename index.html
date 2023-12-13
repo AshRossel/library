@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,49 @@
     <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
 </head>
+
 <body>
-    
+    <div class="table-container">
+        <dialog>
+            <div class="dialog-buttons">
+                <button class="close">CLOSE</button>
+                <button class="add">ADD</button>
+            </div>
+            <form action="#" method="POST">
+                <div class="title-form">
+                    <label for="title">Title</label>
+                    <input type="text" id="title" name="title">
+                </div>
+                <div class="pages-form">
+                    <label for="pages">Pages</label>
+                    <input type="number" id="pages" name="pages">
+                </div>
+                <div class="read-form">
+                    <p>Have you read it?</p>
+                    <div>
+                        <label for="read">Yes</label>
+                        <input type="radio" id="read" name="read">
+                    </div>
+                    <div>
+                        <label for="read">No</label>
+                        <input type="radio" id="read" name="read">
+                    </div>
+                </div>
+            </form>
+        </dialog>
+        <table>
+            <colgroup>
+                <col style="background: none">
+            </colgroup>
+            <tr>
+                <th></th>
+                <th>Title</th>
+                <th>Pages</th>
+                <th>Read</th>
+            </tr>
+        </table>
+        <button class="add-book">ADD BOOK</button>
+    </div>
 </body>
+
 </html>
