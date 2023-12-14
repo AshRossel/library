@@ -27,8 +27,11 @@ function addBookToLibrary() {
 
 function addBooksToDisplay() {
 
-    const rowTable = document.createElement('tr');
+    let rowTable;
+
     myLibrary.forEach(element => {
+
+        rowTable = document.createElement('tr');
 
         const btn1 = document.createElement('button');
         btn1.textContent = "Remove";
@@ -47,7 +50,7 @@ function addBooksToDisplay() {
         rowTable.appendChild(btn2);
     });
 
-    const table = document.querySelector('table');
-    table.appendChild(rowTable);
+    const tbody = document.querySelector('tbody');
+    tbody.appendChild(rowTable);
     dialog.close();
 }
