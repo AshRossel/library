@@ -46,6 +46,7 @@ function addBooksToDisplay() {
         const btn1 = document.createElement('button');
         btn1.textContent = "Remove";
         btn1.classList.add('remove-button');
+        btn1.addEventListener('click', removeBook);
         rowTable.appendChild(btn1);
         
         for (item in element) {
@@ -76,6 +77,18 @@ const changeRead = function(e) {
             }
         }
     })
+}
+
+const removeBook = function(e) {
+    const titleName = e.target.parentElement.querySelector('td').textContent;
+    myLibrary.some((element, index) => {
+        for (item in element) {
+            if (element.title === titleName) {
+                return myLibrary.splice(index, 1);
+            }
+        }
+    })
+    addBooksToDisplay();
 }
 
 addBook.addEventListener('click', openDialog);
