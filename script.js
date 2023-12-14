@@ -25,3 +25,29 @@ function addBookToLibrary() {
     addBooksToDisplay();
 }
 
+function addBooksToDisplay() {
+
+    const rowTable = document.createElement('tr');
+    myLibrary.forEach(element => {
+
+        const btn1 = document.createElement('button');
+        btn1.textContent = "Remove";
+        btn1.classList.add('remove-button');
+        rowTable.appendChild(btn1);
+        
+        for (item in element) {
+            const td = document.createElement('td');
+            td.textContent = `${element[item]}`;
+            rowTable.appendChild(td);
+        }
+
+        const btn2 = document.createElement('button');
+        btn2.textContent = "Read";
+        btn2.classList.add('read-button');
+        rowTable.appendChild(btn2);
+    });
+
+    const table = document.querySelector('table');
+    table.appendChild(rowTable);
+    dialog.close();
+}
