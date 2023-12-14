@@ -4,9 +4,7 @@ const closeButton = document.querySelector('.close');
 const add = document.querySelector('.add');
 const openDialog = () => dialog.showModal();
 const closeDialog = () => dialog.close();
-addBook.addEventListener('click', openDialog);
-closeButton.addEventListener('click', closeDialog);
-add.addEventListener('click', addBookToLibrary);
+
 
 const myLibrary = [];
 
@@ -14,6 +12,15 @@ function Book(title, pages, read) {
     this.title = title;
     this.pages = pages;
     this.read = read;
+}
+
+Book.prototype.toggleRead = function() {
+    if (this.read === 'No') {
+        this.read = 'Yes';
+    } else {
+        this.read = 'No';
+    }
+    addBooksToDisplay();
 }
 
 function addBookToLibrary() {
@@ -28,7 +35,10 @@ function addBookToLibrary() {
 function addBooksToDisplay() {
 
     let rowTable;
-
+    let tbody = document.querySelector('tbody');
+    let rowsTable = tbody.querySelectorAll('tr:nth-child(1n + 2)');
+    rowsTable.forEach(element => element.remove());
+    
     myLibrary.forEach(element => {
 
         rowTable = document.createElement('tr');
@@ -39,18 +49,35 @@ function addBooksToDisplay() {
         rowTable.appendChild(btn1);
         
         for (item in element) {
-            const td = document.createElement('td');
-            td.textContent = `${element[item]}`;
-            rowTable.appendChild(td);
+            if  (item !== 'toggleRead') {
+                const td = document.createElement('td');
+                td.textContent = `${element[item]}`;
+                rowTable.appendChild(td);
+            }
         }
 
         const btn2 = document.createElement('button');
         btn2.textContent = "Read";
         btn2.classList.add('read-button');
-        rowTable.appendChild(btn2);
+        btn2.addEventListener('click', changeRead);
+        rowTable.appendChild(btn2)
+        tbody.appendChild(rowTable);
     });
 
-    const tbody = document.querySelector('tbody');
-    tbody.appendChild(rowTable);
     dialog.close();
 }
+
+const changeRead = function(e) {
+    const titleName = e.target.parentElement.querySelector('td').textContent;
+    myLibrary.some(element => {
+        for (item in element) {
+            if (element.title === titleName) {
+                return element.toggleRead();
+            }
+        }
+    })
+}
+
+addBook.addEventListener('click', openDialog);
+closeButton.addEventListener('click', closeDialog);
+add.addEventListener('click', addBookToLibrary);
