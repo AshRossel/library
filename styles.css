@@ -181,3 +181,13 @@ p {
     font-weight: 600;
     font-size: 1.3rem;
 }
+
+#error::after {
+    content: "* This book is already in the library!";
+    position: absolute;
+    top: 185px;
+    left: 83px;
+    font-size: 0.8rem;
+    color: red;
+    font-family: sans-serif;
+}

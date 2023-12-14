@@ -26,6 +26,13 @@ Book.prototype.toggleRead = function() {
 function addBookToLibrary() {
     const title = document.querySelector('#title').value;
     const pages = document.querySelector('#pages').value;
+
+    for (const element of myLibrary) {
+        if (element.title === title && element.pages == pages) {
+            return document.querySelector('span').setAttribute('id', 'error');
+        }
+    }
+
     const read = document.querySelector('#read:checked').value;
     const newBook = new Book(title, pages, read);
     myLibrary.push(newBook);
@@ -69,10 +76,11 @@ function addBooksToDisplay() {
 }
 
 const changeRead = function(e) {
-    const titleName = e.target.parentElement.querySelector('td').textContent;
+    const title = e.target.parentElement.querySelector('td').textContent;
+    const pages = e.target.parentElement.querySelector('td:nth-child(3)').textContent;
     myLibrary.some(element => {
         for (item in element) {
-            if (element.title === titleName) {
+            if (element.title === title && element.pages == pages) {
                 return element.toggleRead();
             }
         }
@@ -80,10 +88,11 @@ const changeRead = function(e) {
 }
 
 const removeBook = function(e) {
-    const titleName = e.target.parentElement.querySelector('td').textContent;
+    const title = e.target.parentElement.querySelector('td').textContent;
+    const pages = e.target.parentElement.querySelector('td:nth-child(3)').textContent;
     myLibrary.some((element, index) => {
         for (item in element) {
-            if (element.title === titleName) {
+            if (element.title === title && element.pages == pages) {
                 return myLibrary.splice(index, 1);
             }
         }
