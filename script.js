@@ -1,12 +1,14 @@
+const myLibrary = [];
 const dialog = document.querySelector('dialog');
 const addBook = document.querySelector('.add-book');
 const closeButton = document.querySelector('.close');
 const add = document.querySelector('.add');
 const openDialog = () => dialog.showModal();
-const closeDialog = () => dialog.close();
+const closeDialog = () => {
+    dialog.close();
+    document.querySelector('span').setAttribute('id', '');
+}
 
-
-const myLibrary = [];
 
 function Book(title, pages, read) {
     this.title = title;
@@ -36,6 +38,7 @@ function addBookToLibrary() {
     const read = document.querySelector('#read:checked').value;
     const newBook = new Book(title, pages, read);
     myLibrary.push(newBook);
+    document.querySelector('span').setAttribute('id', '');
     addBooksToDisplay();
 }
 
