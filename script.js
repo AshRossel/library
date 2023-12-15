@@ -7,6 +7,10 @@ const openDialog = () => dialog.showModal();
 const closeDialog = () => {
     dialog.close();
     document.querySelector('span').setAttribute('id', '');
+    const title = document.querySelector('#title');
+    const pages = document.querySelector('#pages');
+    title.value = '';
+    pages.value = '';
 }
 
 
@@ -40,6 +44,11 @@ function addBookToLibrary() {
     myLibrary.push(newBook);
     document.querySelector('span').setAttribute('id', '');
     addBooksToDisplay();
+
+    const titleElement = document.querySelector('#title');
+    const pagesElement = document.querySelector('#pages');
+    titleElement.value = '';
+    pagesElement.value = '';
 }
 
 function addBooksToDisplay() {
